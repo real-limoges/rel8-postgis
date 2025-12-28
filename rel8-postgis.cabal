@@ -1,4 +1,4 @@
-cabal-version:      3.4
+cabal-version:      3.16
 name:               rel8-postgis
 version:            0.1.0.0
 synopsis:           Unofficial Type-safe PostGIS bindings for Rel8
@@ -9,7 +9,6 @@ maintainer:         b.real.limoges@gmail.com
 category:           Database, Geography
 build-type:         Simple
 extra-doc-files:    CHANGELOG.md
--- extra-source-files:
 
 common warnings
     ghc-options: -Wall
@@ -25,7 +24,7 @@ library
                       Rel8.PostGIS.Functions
                       Rel8.PostGIS.Instances
 
-    build-depends:      base >=4.16 && <5
+    build-depends:      base >=4.20.0.0 && <5
                       , rel8 >= 1.4
                       , hasql >= 1.6
                       , text
@@ -43,11 +42,9 @@ library
 test-suite rel8-postgis-test
     import:           warnings
     default-language: GHC2021
-    -- other-modules:
-    -- other-extensions:
     type:             exitcode-stdio-1.0
     hs-source-dirs:   test
     main-is:          Main.hs
     build-depends:
-        base >= 4.16 && < 5
+        base >= 4.20.0.0 && < 5
         , rel8-postgis
