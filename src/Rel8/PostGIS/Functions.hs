@@ -1,24 +1,24 @@
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE TypeApplications #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 {-# HLINT ignore "Use camelCase" #-}
 -- \^ I'm not using camelCase in this module to match the PostGIS function names
 
 module Rel8.PostGIS.Functions where
 
+import Data.Int (Int32)
 import Rel8
 import Rel8.PostGIS.Instances ()
 import Rel8.PostGIS.Types
-import Data.Int (Int32)
 
 st_makePoint :: Expr Double -> Expr Double -> Expr (Geo Point)
 st_makePoint x y =
-    function "ST_SetSRID"
+    function
+        "ST_SetSRID"
         ( function "ST_MakePoint" (x, y) :: Expr (Geo Point)
         , lit 4326 :: Expr Int32
         )
