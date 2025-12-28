@@ -16,15 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # The action handles the installation.
-      # Do not add a 'run' block here.
+      # Updated to use the versions your project requires
       - name: Setup Haskell
         uses: actions/setup-haskell@v1
         with:
-          ghc-version: '9.10.1'
-          cabal-version: '3.12'
+          ghc-version: '9.12.2'
+          cabal-version: '3.16'
 
-      # Improved Caching paths for Haskell
       - name: Cache
         uses: actions/cache@v3
         env:
