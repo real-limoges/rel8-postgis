@@ -20,6 +20,9 @@ jobs:
       with:
         ghc-version: '9.10.1'
         cabal-version: '3.12'
+      run: |
+        ghcup install ghc 9.10.1
+        ghcup set ghc 9.10.1
 
     - name: Cache
       uses: actions/cache@v3
