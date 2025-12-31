@@ -1,0 +1,3 @@
+packages: .
+
+constraints: hasql == 1.9.3.1
