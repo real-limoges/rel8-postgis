@@ -24,13 +24,13 @@ library
                       Rel8.PostGIS.Functions
                       Rel8.PostGIS.Instances
 
-    build-depends:      base >=4.20.0.0 && <5
-                      , rel8 >= 1.4
-                      , hasql >= 1.6
+    build-depends:      base >=4.20 && <5
+                      , rel8
+                      , hasql
                       , text
                       , bytestring
                       , scientific
-                      , binary > 0.8.9.0
+                      , binary
                       , cereal
 
     default-extensions:
@@ -40,11 +40,18 @@ library
 
 
 test-suite rel8-postgis-test
-    import:           warnings
-    default-language: GHC2021
-    type:             exitcode-stdio-1.0
-    hs-source-dirs:   test
-    main-is:          Main.hs
+    import:             warnings
+    default-language:   GHC2021
+    type:               exitcode-stdio-1.0
+    hs-source-dirs:     test
+    main-is:            Main.hs
+    other-modules:      Fixtures
+                      , TestInfrastructure
+
     build-depends:
-        base >= 4.20.0.0 && < 5
+        base >= 4.20 && < 5
         , rel8-postgis
+        , rel8
+        , hasql
+        , bytestring
+        , text

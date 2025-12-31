@@ -1,13 +1,10 @@
 module Rel8.PostGIS (
     Geo (..),
-    Point,
-    LineString,
-    Polygon,
-    Geometry,
-    decodePoint,
-    decodePolygon,
-    encodePoint,
-    encodePolygon,
+    Point (..),
+    LineString (..),
+    Polygon (..),
+    Geometry (..),
+    module Rel8.PostGIS.Functions,
 )
 where
 

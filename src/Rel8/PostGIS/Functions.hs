@@ -11,9 +11,15 @@
 module Rel8.PostGIS.Functions where
 
 import Data.Int (Int32)
-import Rel8
+import Rel8 (Expr, DBType, function, lit)
 import Rel8.PostGIS.Instances ()
 import Rel8.PostGIS.Types
+
+stX :: Expr (Geo Point) -> Expr (Maybe Double)
+stX = function "ST_X"
+
+stY :: Expr (Geo Point) -> Expr (Maybe Double)
+stY = function "ST_Y"
 
 st_makePoint :: Expr Double -> Expr Double -> Expr (Geo Point)
 st_makePoint x y =
